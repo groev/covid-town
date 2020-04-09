@@ -169,7 +169,7 @@ button {
           transform: rotate(-50deg);
         }
       }
-      animation: cough-1 6 infinite;
+      animation: cough-1 6s infinite;
     }
     &.dead {
       filter: grayscale(100%);
