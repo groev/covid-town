@@ -19,9 +19,12 @@ button {
 }
 .test {
   background: #00dabd;
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  @media (max-width: 800px) {
+    bottom: -20px;
+  }
 }
 
 .start {
@@ -38,6 +41,10 @@ button {
   align-items: center;
   justify-content: center;
 }
+.inner {
+  position: relative;
+  max-width: 800px;
+}
 
 .fieldmap {
   margin-top: 3rem;
@@ -46,8 +53,9 @@ button {
   grid-template-rows: repeat(11, 70px);
   grid-gap: 0.3rem;
   @media (max-width: 800px) {
-    grid-template-columns: repeat(10, 8.5vw);
-    grid-template-rows: repeat(11, 8.5vw);
+    grid-template-columns: repeat(10, 9.7vw);
+    grid-template-rows: repeat(11, 9.7vw);
+    grid-gap: 0.1rem;
   }
 
   .field {
@@ -91,6 +99,11 @@ button {
 .person {
   height: 90%;
   width: 90%;
+  @media (max-width: 800px) {
+    height: 100%;
+    width: 100%;
+    border-radius: 13px;
+  }
   border-radius: 50%;
   background-size: cover;
   background-repeat: no-repeat;
@@ -101,6 +114,7 @@ button {
   &.selected {
     transition: border 0.2s ease;
     border: 3px solid #ff5d00;
+    box-sizing: border-box;
   }
   &.male {
     &.age-1 {

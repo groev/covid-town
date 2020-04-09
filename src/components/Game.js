@@ -42,12 +42,15 @@ export default function Game() {
         }
       }
     });
+    const newlySick = people.filter((person) => {
+      return person.sick;
+    });
+    setSickCount(newlySick.length);
   }
   function getSicker() {
     const sickpeople = people.filter((person) => {
       return person.sick && !person.dead;
     });
-    setSickCount(sickpeople.length);
 
     sickpeople.forEach((sickperson) => {
       const personIndex = people.indexOf(sickperson);
