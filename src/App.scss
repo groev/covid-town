@@ -1,30 +1,191 @@
+@import url("https://fonts.googleapis.com/css?family=Permanent+Marker&display=swap");
+
+body {
+  background: #ffdaca;
+  font-family: "Permanent Marker", cursive;
+  font-size: 20px;
+  color: #ff5d00;
+}
+a,
+button {
+  font-family: "Permanent Marker", cursive;
+  font-size: 1rem;
+  padding: 1rem 2rem;
+  border: 0px;
+  border-radius: 13px;
+  background: #ff5d00;
+  color: #fff;
+  float: right;
+}
+.test {
+  background: #00dabd;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+}
+
+.start {
+  text-align: center;
+  a {
+    text-decoration: none;
+    float: none;
+  }
+}
+
+#Game {
+  padding: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .fieldmap {
+  margin-top: 3rem;
   display: grid;
-  grid-template-columns: repeat(10, 100px);
-  grid-template-rows: repeat(10, 100px);
+  grid-template-columns: repeat(10, 70px);
+  grid-template-rows: repeat(11, 70px);
+  grid-gap: 0.3rem;
 
   .field {
+    .move {
+      height: 50%;
+      width: 50%;
+      background-image: url(./images/arrow.svg);
+      background-size: contain;
+      background-position: center;
+      cursor: pointer;
+      background-repeat: no-repeat;
+      animation: blink 2s infinite;
+    }
+    @keyframes blink {
+      0% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(1.2);
+      }
+      100% {
+        transform: scale(1);
+      }
+    }
+    border-radius: 5px;
     width: 100%;
     height: 100%;
-    border: 1px solid #ccc;
     display: flex;
+    background-color: rgba(100, 0, 0, 0.1);
     align-items: center;
     justify-content: center;
+    &.hospital {
+      background-image: url(./images/bed.svg);
+      background-size: 80%;
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+  }
+}
 
-    .person {
-      height: 80%;
+.person {
+  height: 90%;
+  width: 90%;
+  border-radius: 50%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 2px 2px 0px rgba(100, 0, 0, 0.1);
+  cursor: pointer;
+  &.selected {
+    transition: border 0.2s ease;
+    border: 3px solid #ff5d00;
+  }
+  &.male {
+    &.age-1 {
+      background-image: url(./images/person-1.svg);
+    }
+    &.age-2 {
+      background-image: url(./images/person-3.svg);
+    }
+    &.age-3 {
+      background-image: url(./images/person-5.svg);
+    }
+  }
+  &.female {
+    &.age-1 {
+      background-image: url(./images/person-2.svg);
+    }
+    &.age-2 {
+      background-image: url(./images/person-4.svg);
+    }
+    &.age-3 {
+      background-image: url(./images/person-6.svg);
+    }
+  }
+  &.sick {
+  }
+  &.tested {
+    background-color: blue;
+  }
+  &.sick.tested {
+    background-color: red;
+  }
+
+  &.cough {
+    &:after {
+      content: "";
+      display: block;
+      background-size: contain;
+      position: absolute;
+      height: 50%;
       width: 80%;
-      border-radius: 50%;
-      background: grey;
-      &.sick {
-        background: green;
+      background-repeat: no-repeat;
+      background-image: url(./images/hand.svg);
+      right: 0;
+      bottom: -10%;
+      transform-origin: 100% 100%;
+      @keyframes cough-1 {
+        0% {
+          transform: rotate(0deg);
+        }
+        10%,
+        100% {
+          transform: rotate(-50deg);
+        }
       }
-      &.tested {
-        background: blue;
+      animation: cough-1 10s infinite;
+    }
+    &.dead {
+      filter: grayscale(100%);
+      &:after {
+        display: none !important;
       }
-      &.sick.tested {
-        background: red;
+    }
+  }
+  &.cough-2 {
+    &:after {
+      @keyframes cough-2 {
+        0% {
+          transform: rotate(0deg);
+        }
+        40%,
+        100% {
+          transform: rotate(-50deg);
+        }
       }
+      animation: cough-2 5s infinite;
+    }
+  }
+  &.cough-3 {
+    &:after {
+      @keyframes cough-3 {
+        0% {
+          transform: rotate(0deg);
+        }
+        80%,
+        100% {
+          transform: rotate(-50deg);
+        }
+      }
+      animation: cough-3 2s infinite;
     }
   }
 }
