@@ -1,0 +1,30 @@
+.fieldmap {
+  display: grid;
+  grid-template-columns: repeat(10, 100px);
+  grid-template-rows: repeat(10, 100px);
+
+  .field {
+    width: 100%;
+    height: 100%;
+    border: 1px solid #ccc;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .person {
+      height: 80%;
+      width: 80%;
+      border-radius: 50%;
+      background: grey;
+      &.sick {
+        background: green;
+      }
+      &.tested {
+        background: blue;
+      }
+      &.sick.tested {
+        background: red;
+      }
+    }
+  }
+}
