@@ -53,9 +53,9 @@ button {
   grid-template-rows: repeat(6, 70px);
   grid-gap: 0.3rem;
   @media (max-width: 800px) {
-    grid-template-columns: repeat(5, 9.7vw);
-    grid-template-rows: repeat(6, 9.7vw);
-    grid-gap: 0.1rem;
+    grid-template-columns: repeat(5, 19vw);
+    grid-template-rows: repeat(6, 19vw);
+    grid-gap: 0.3rem;
   }
 
   .field {
