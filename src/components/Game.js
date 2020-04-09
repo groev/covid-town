@@ -103,7 +103,6 @@ export default function Game() {
     setRound(round + 1);
     setMoves(3);
     infectPeople();
-
     setSelected(false);
     getSicker();
   }

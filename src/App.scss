@@ -49,12 +49,12 @@ button {
 .fieldmap {
   margin-top: 3rem;
   display: grid;
-  grid-template-columns: repeat(10, 70px);
-  grid-template-rows: repeat(11, 70px);
+  grid-template-columns: repeat(5, 70px);
+  grid-template-rows: repeat(6, 70px);
   grid-gap: 0.3rem;
   @media (max-width: 800px) {
-    grid-template-columns: repeat(10, 9.7vw);
-    grid-template-rows: repeat(11, 9.7vw);
+    grid-template-columns: repeat(5, 9.7vw);
+    grid-template-rows: repeat(6, 9.7vw);
     grid-gap: 0.1rem;
   }
 
@@ -169,7 +169,7 @@ button {
           transform: rotate(-50deg);
         }
       }
-      animation: cough-1 10s infinite;
+      animation: cough-1 6 infinite;
     }
     &.dead {
       filter: grayscale(100%);

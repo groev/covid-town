@@ -12,7 +12,7 @@ function randomNumber(number) {
 
 function createPeople() {
   const people = [];
-  for (let i = 1; i <= 60; i++) {
+  for (let i = 1; i <= 15; i++) {
     const person = {
       sick: false,
       tested: false,
@@ -24,8 +24,8 @@ function createPeople() {
       dead: false,
       hospitalized: 0,
       immune: false,
-      x: randomNumber(10),
-      y: randomNumber(10),
+      x: randomNumber(5),
+      y: randomNumber(5),
     };
     if (
       !people.find((find) => {
@@ -46,14 +46,14 @@ function createPeople() {
 
 function createFields() {
   const fields = [];
-  for (let i = 1; i <= 10; i++) {
-    for (let c = 1; c <= 10; c++) {
+  for (let i = 1; i <= 5; i++) {
+    for (let c = 1; c <= 5; c++) {
       const field = { x: c, y: i, type: "base" };
       fields.push(field);
     }
   }
-  for (let i = 1; i <= 5; i++) {
-    const field = { x: i, y: 11, type: "hospital" };
+  for (let i = 1; i <= 2; i++) {
+    const field = { x: i, y: 6, type: "hospital" };
     fields.push(field);
   }
   return fields;
