@@ -59,16 +59,16 @@ export default function Game() {
       setPeople((people) => {
         if (
           !sickperson.hospitalized &&
-          newDays > 10 &&
+          newDays > 7 &&
           sickperson.preConditions === 3
         ) {
           people[personIndex].dead = true;
         }
-        if (newDays > 8 && sickperson.preConditions === 1) {
+        if (newDays > 5 && sickperson.preConditions === 1) {
           people[personIndex].sick = false;
           people[personIndex].immune = true;
         }
-        if (newDays > 16 && sickperson.preConditions === 2) {
+        if (newDays > 8 && sickperson.preConditions === 2) {
           people[personIndex].sick = false;
           people[personIndex].immune = true;
         }
@@ -77,7 +77,7 @@ export default function Game() {
           console.log(people[personIndex]);
         }
 
-        if (sickperson.hospitalized > 10) {
+        if (sickperson.hospitalized > 5) {
           people[personIndex].sick = false;
           people[personIndex].immune = true;
         }
