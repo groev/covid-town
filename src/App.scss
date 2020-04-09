@@ -45,6 +45,10 @@ button {
   grid-template-columns: repeat(10, 70px);
   grid-template-rows: repeat(11, 70px);
   grid-gap: 0.3rem;
+  @media (max-width: 800px) {
+    grid-template-columns: repeat(10, 8.5vw);
+    grid-template-rows: repeat(11, 8.5vw);
+  }
 
   .field {
     .move {
