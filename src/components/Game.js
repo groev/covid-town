@@ -8,7 +8,7 @@ export default function Game() {
   const [selected, setSelected] = useState(false);
   const [sickcount, setSickCount] = useState(1);
   const [round, setRound] = useState(1);
-  const [moves, setMoves] = useState(3);
+  const [moves, setMoves] = useState(2);
 
   useEffect(() => {
     setFields(createFields());
@@ -101,7 +101,7 @@ export default function Game() {
     }
     e.preventDefault();
     setRound(round + 1);
-    setMoves(3);
+    setMoves(2);
     infectPeople();
     setSelected(false);
     getSicker();
