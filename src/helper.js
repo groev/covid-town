@@ -12,7 +12,7 @@ function randomNumber(number) {
 
 function createPeople() {
   const people = [];
-  for (let i = 1; i <= 100; i++) {
+  for (let i = 1; i <= 60; i++) {
     const person = {
       sick: false,
       tested: false,
@@ -38,7 +38,7 @@ function createPeople() {
       }
       people.push(person);
     } else {
-      i++;
+      i--;
     }
   }
   return people;

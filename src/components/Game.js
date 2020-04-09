@@ -19,7 +19,6 @@ export default function Game() {
     const sickpeople = people.filter((person) => {
       return person.sick;
     });
-    setSickCount(sickpeople.length);
     sickpeople.forEach((sickperson) => {
       for (let i = -1; i <= 1; i++) {
         for (let c = -1; c <= 1; c++) {
@@ -27,9 +26,13 @@ export default function Game() {
           } else {
             const coordinates = { x: sickperson.x + i, y: sickperson.y + c };
             const target = people.findIndex((person) => {
-              return person.x === coordinates.x && person.y === coordinates.y;
+              return (
+                person.x === coordinates.x &&
+                person.y === coordinates.y &&
+                !person.immune
+              );
             });
-            if (target > -1 && !target.immune) {
+            if (target > -1) {
               setPeople((people) => {
                 people[target].sick = true;
                 return [...people];
@@ -42,8 +45,10 @@ export default function Game() {
   }
   function getSicker() {
     const sickpeople = people.filter((person) => {
-      return person.sick;
+      return person.sick && !person.dead;
     });
+    setSickCount(sickpeople.length);
+
     sickpeople.forEach((sickperson) => {
       const personIndex = people.indexOf(sickperson);
       const newDays = sickperson.sickDays + 1;
@@ -60,7 +65,6 @@ export default function Game() {
           people[personIndex].sick = false;
           people[personIndex].immune = true;
         }
-
         if (newDays > 16 && sickperson.preConditions === 2) {
           people[personIndex].sick = false;
           people[personIndex].immune = true;
@@ -84,12 +88,21 @@ export default function Game() {
     });
   }
   function nextRound(e) {
+    if (sickcount === 0) {
+      const deadCount = people.filter((person) => person.dead).length;
+      alert(
+        "Game finished, people are dead or healthy! You let " +
+          deadCount +
+          " people die."
+      );
+    }
     e.preventDefault();
     setRound(round + 1);
     setMoves(3);
+    infectPeople();
+
     setSelected(false);
     getSicker();
-    infectPeople();
   }
   function selectPerson(person) {
     setSelected(person);

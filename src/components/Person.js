@@ -3,8 +3,10 @@ import React from "react";
 export default function Person(props) {
   const person = props.data;
   let personclass = "person " + person.gender + " age-" + person.age;
-  if (person.sick && person.sickDays > 2) {
+  if (person.sick) {
     personclass += " sick";
+  }
+  if (person.sick && person.sickDays > 2) {
     personclass += " cough cough-2";
   }
   if (person.sick && person.sickDays > 5) {
