@@ -43,7 +43,7 @@ export default function Game() {
       }
     });
     const newlySick = people.filter((person) => {
-      return person.sick;
+      return person.sick & !person.dead;
     });
     setSickCount(newlySick.length);
   }
